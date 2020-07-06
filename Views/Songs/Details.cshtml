@@ -1,0 +1,78 @@
+﻿@model WebApplication2.Models.Song
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongLyrics)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongLyrics)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongLength)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongLength)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongYear)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongComposer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongComposer.ComposerId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongCategory.CategoryId)
+        </dd>
+
+        @*code added here*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongPayments)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Customer Surname</th>
+                </tr>
+                @foreach (var item in Model.SongPayments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.CustomerSurname)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SongId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

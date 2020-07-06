@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApplication2.Models.Song>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.SongName)</a>                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SongLyrics)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["song_length_desc"]">@Html.DisplayNameFor(model => model.SongLength)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["Date"]">@Html.DisplayNameFor(model => model.SongYear)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SongComposer)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["song_category"]">@Html.DisplayNameFor(model => model.SongCategory)</a>
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.SongPrice)
+            </th>
+            <th></th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongLyrics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongLength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongComposer.ComposerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongCategory.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongPrice)
+            </td>
+            <td>
+                <a asp-action="Buy" asp-route-id="@item.SongId">Buy</a>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SongId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SongId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SongId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,66 @@
+﻿@model WebApplication2.Models.Composer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Composer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComposerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComposerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComposerSurname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComposerSurname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComposerEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComposerEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComposerGrade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComposerGrade)
+        </dd>
+
+        @*code added*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComposerSongs)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Song Name</th>
+                    <th>Category Name</th>
+                </tr>
+                @foreach (var item in Model.ComposerSongs)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SongName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SongCategory.CategoryName)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ComposerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
