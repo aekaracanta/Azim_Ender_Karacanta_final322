@@ -72,6 +72,8 @@ namespace WebApplication2.Controllers
 
             return View(song);
         }
+
+
         [Authorize(Roles = "admin,composer")]
         // GET: Songs/Create
         public IActionResult Create()
@@ -155,6 +157,7 @@ namespace WebApplication2.Controllers
             ViewData["ComposerId"] = new SelectList(_context.Composers, "ComposerId", "ComposerId", song.ComposerId);
             return View(song);
         }
+        
         [Authorize(Roles = "admin,composer")]
         // GET: Songs/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -184,6 +187,38 @@ namespace WebApplication2.Controllers
         {
             var song = await _context.Songs.FindAsync(id);
             _context.Songs.Remove(song);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [Authorize(Roles = "admin,customer")]
+        // GET: Songs/Buy/5
+        public async Task<IActionResult> Buy(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var song = await _context.Songs
+                .Include(s => s.SongCategory)
+                .Include(s => s.SongComposer)
+                .FirstOrDefaultAsync(m => m.SongId == id);
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+            return View(song);
+        }
+
+        // POST: Songs/Buy/5
+        [HttpPost, ActionName("Buy")]
+        [Authorize(Roles = "admin,customer")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BuyConfirmed(int id)
+        {
+            var song = await _context.Songs.FindAsync(id);            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

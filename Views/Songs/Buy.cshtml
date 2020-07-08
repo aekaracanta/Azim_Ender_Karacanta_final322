@@ -1,0 +1,55 @@
+﻿@model WebApplication2.Models.Song
+
+@{
+    ViewData["Title"] = "Success";
+}
+
+<h1>Shopping succeeded</h1>
+
+<h3>You bought this song:</h3>
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongLyrics)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongLyrics)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongLength)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongLength)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongComposer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongComposer.ComposerId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SongCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SongCategory.CategoryId)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Buy">
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

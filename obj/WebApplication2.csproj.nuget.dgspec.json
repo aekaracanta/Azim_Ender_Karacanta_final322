@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322\\WebApplication2.csproj": {}
+    "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322-1\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322\\WebApplication2.csproj": {
+    "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322-1\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322-1\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322\\WebApplication2.csproj",
+        "projectPath": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322-1\\WebApplication2.csproj",
         "packagesPath": "C:\\Users\\Anıl Erdem Karaçanta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322\\obj\\",
+        "outputPath": "C:\\Users\\Anıl Erdem Karaçanta\\Desktop\\son322-1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
